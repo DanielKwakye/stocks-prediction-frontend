@@ -2,9 +2,9 @@
 
 import { SidebarProvider } from "@/components/ui/sidebar"
 import AppSidebar from "./components/layout/app-sidebar"
-import AppFutureStockPrediction from "./components/inner/app-future-stock-prediction"
+import AppFutureStockPrediction from "./components/content/app-future-stock-prediction"
 import { Card } from "./components/ui/card"
-import AppPastStockPrediction from "./components/inner/app-past-stock-prediction"
+import AppPastStockPrediction from "./components/content/app-past-stock-prediction"
 
 function App() {
 
@@ -30,7 +30,6 @@ function App() {
         </Card>
         <div className="flex flex-row gap-4">
             <div className="flex-1">
-              
               <AppFutureStockPrediction/>
             </div>
             <div className="flex-1">

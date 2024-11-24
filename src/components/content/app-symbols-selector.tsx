@@ -7,10 +7,12 @@ import {
   } from "@/components/ui/select"
 
   
-export default function AppSymbolSelector() {
+export default function AppSymbolSelector({defaultValue = "AAPL", onValueChange}: { defaultValue?: string, onValueChange?(value: string): void }) {
+
+
     return (
         <div >
-            <Select>
+            <Select defaultValue={defaultValue} onValueChange={onValueChange}>
                 <SelectTrigger className="w-full">
                     <SelectValue placeholder="Symbol" />
                 </SelectTrigger>
