@@ -1,18 +1,16 @@
-// import './App.css'
-
+import { Routes, Route, Navigate } from 'react-router-dom'
 import { SidebarProvider } from "@/components/ui/sidebar"
 import AppSidebar from "./components/layout/app-sidebar"
 import AppFutureStockPrediction from "./components/content/app-future-stock-prediction"
 import { Card } from "./components/ui/card"
 import AppPastStockPrediction from "./components/content/app-past-stock-prediction"
+import LoginPage from "./components/LoginPage"
 
-function App() {
-
+function Dashboard() {
   return (
     <SidebarProvider>
       <AppSidebar />
       <main className="container p-20 space-y-4">
-        {/* <SidebarTrigger /> */}
         <Card className="p-5 space-y-5">
           <div>
             <h2 className="text-xl font-semibold text-gray-700">Future Prediction - Left</h2>
@@ -29,17 +27,27 @@ function App() {
           </div>
         </Card>
         <div className="flex flex-row gap-4">
-            <div className="flex-1">
-              <AppFutureStockPrediction/>
-            </div>
-            <div className="flex-1">
-              <AppPastStockPrediction/>
-            </div>
+          <div className="flex-1">
+            <AppFutureStockPrediction/>
+          </div>
+          <div className="flex-1">
+            <AppPastStockPrediction/>
+          </div>
         </div>
       </main>
     </SidebarProvider>
   )
+}
 
+function App() {
+  return (
+    <Routes>
+      <Route path="/login" element={<LoginPage />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/" element={<Navigate to="/login" replace />} />
+    </Routes>
+  )
 }
 
 export default App
+
