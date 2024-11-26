@@ -18,8 +18,8 @@ export default function AppSymbolSelector({defaultValue = "AAPL", onValueChange}
                 </SelectTrigger>
                 <SelectContent> 
                     <SelectItem value="AAPL">AAPL</SelectItem>
-                    <SelectItem value="GOOGL">GOOGLE</SelectItem>
-                    <SelectItem value="MSFT">MSFT</SelectItem>
+                    {/* <SelectItem value="GOOGL">GOOGLE</SelectItem>
+                    <SelectItem value="MSFT">MSFT</SelectItem> */}
                 </SelectContent>
             </Select>
         </div>
