@@ -16,7 +16,6 @@ import {
     ChartTooltip,
     ChartTooltipContent,
   } from "@/components/ui/chart"
-import {  chartConfig, chartData } from "@/lib/utils"
 import { DatePickerWithRange } from "./app-date-selector"
 import { Button } from "../ui/button"
 import AppSymbolSelector from "./app-symbols-selector"
@@ -55,6 +54,7 @@ export default function AppPastStockPrediction() {
   const [dateRange, setDateRange] = useState<DateRange|null>(null)
   const [prediction, setPrediction] = useState([])
   const [mae, setMae] = useState<{ mae_high: number, mae_low: number, mae_close: number }|null>(null)
+  const [dateRangeLimit, setDateRangeLimit] = useState<DateRange|null>(null)
 
   useEffect(() => {
     fetchHistoricalPredictionsHanlder()
@@ -76,6 +76,13 @@ export default function AppPastStockPrediction() {
       setDateRange({
         from: new Date(data.start_date),
         to: new Date(data.end_date),
+      })
+      console.log("start limit:", data.start_date_limit);
+      console.log("end limit:", data.end_date_limit);
+      
+      setDateRangeLimit({
+        from: new Date(data.start_date_limit),
+        to: new Date(data.end_date_limit),
       })
       setPrediction(data.chartData)
       setMae(data.mae_scores)
@@ -117,6 +124,8 @@ export default function AppPastStockPrediction() {
                    onChange={onDateRangeSelected} 
                    startDate={dateRange?.from != null ? dateRange.from : new Date()}
                     endDate={dateRange?.to} 
+                    startDateLimit={dateRangeLimit?.from != null ? dateRangeLimit.from : new Date()}
+                    endDateLimit={dateRangeLimit?.to || null}
                     className=""
                     />
                </div>

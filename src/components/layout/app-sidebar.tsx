@@ -11,6 +11,7 @@ import {
   } from "@/components/ui/sidebar"
 
 import { menuItemsData } from "@/lib/utils"
+import { Link } from "react-router-dom"
 
 
 export default function AppSidebar() {
@@ -27,10 +28,10 @@ export default function AppSidebar() {
                         {menuItemsData.map((item) => (
                             <SidebarMenuItem key={item.title}>
                             <SidebarMenuButton asChild>
-                                <a href={item.url}>
-                                <item.icon />
-                                <span>{item.title}</span>
-                                </a>
+                                <Link to={item.url}>
+                                    <item.icon />
+                                    <span>{item.title}</span>
+                                </Link>
                             </SidebarMenuButton>
                             </SidebarMenuItem>
                         ))}

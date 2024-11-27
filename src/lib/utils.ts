@@ -12,29 +12,19 @@ export function cn(...inputs: ClassValue[]) {
 export const menuItemsData = [
   {
     title: "Home",
-    url: "#",
+    url: "/dashboard",
     icon: Home,
-  },
+  },  
   {
-    title: "Inbox",
-    url: "#",
+    title: "Historical Prediction Module",
+    url: "/dashboard/historical",
     icon: Inbox,
   },
   {
-    title: "Calendar",
-    url: "#",
+    title: "Future Prediction Module",
+    url: "/dashboard/future",
     icon: Calendar,
-  },
-  {
-    title: "Search",
-    url: "#",
-    icon: Search,
-  },
-  {
-    title: "Settings",
-    url: "#",
-    icon: Settings,
-  },
+  }
 ]
  
 

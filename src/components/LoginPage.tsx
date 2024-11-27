@@ -1,11 +1,10 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ArrowUpRight, ArrowDownRight, DollarSign, Mail, Lock, User } from 'lucide-react'
+import { ArrowUpRight, ArrowDownRight} from 'lucide-react'
+import LoginForm from './LoginForm'
+import RegisterForm from './RegistrationForm'
 
 const LoginPage: React.FC = () => {
   const [stocks, setStocks] = useState([
@@ -78,53 +77,10 @@ const LoginPage: React.FC = () => {
               <TabsTrigger value="register" className="text-white data-[state=active]:bg-gray-700">Register</TabsTrigger>
             </TabsList>
             <TabsContent value="login">
-              <form className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="email" className="text-gray-300">Email</Label>
-                  <div className="relative">
-                    <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                    <Input id="email" type="email" placeholder="Enter your email" className="pl-10 bg-gray-800/50 border-gray-700 text-white placeholder-gray-400" />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="password" className="text-gray-300">Password</Label>
-                  <div className="relative">
-                    <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                    <Input id="password" type="password" placeholder="Enter your password" className="pl-10 bg-gray-800/50 border-gray-700 text-white placeholder-gray-400" />
-                  </div>
-                </div>
-                <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white">
-                  <DollarSign className="mr-2 h-4 w-4" /> Log in
-                </Button>
-              </form>
+              <LoginForm />
             </TabsContent>
             <TabsContent value="register">
-              <form className="space-y-4">
-                <div className="space-y-2">
-                  <Label htmlFor="name" className="text-gray-300">Full Name</Label>
-                  <div className="relative">
-                    <User className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                    <Input id="name" type="text" placeholder="Enter your full name" className="pl-10 bg-gray-800/50 border-gray-700 text-white placeholder-gray-400" />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="email" className="text-gray-300">Email</Label>
-                  <div className="relative">
-                    <Mail className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                    <Input id="email" type="email" placeholder="Enter your email" className="pl-10 bg-gray-800/50 border-gray-700 text-white placeholder-gray-400" />
-                  </div>
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="password" className="text-gray-300">Password</Label>
-                  <div className="relative">
-                    <Lock className="absolute left-3 top-3 h-4 w-4 text-gray-400" />
-                    <Input id="password" type="password" placeholder="Create a password" className="pl-10 bg-gray-800/50 border-gray-700 text-white placeholder-gray-400" />
-                  </div>
-                </div>
-                <Button type="submit" className="w-full bg-blue-600 hover:bg-blue-700 text-white">
-                  <DollarSign className="mr-2 h-4 w-4" /> Sign up
-                </Button>
-              </form>
+              <RegisterForm />
             </TabsContent>
           </Tabs>
         </CardContent>

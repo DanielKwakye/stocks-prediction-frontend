@@ -16,8 +16,13 @@ export function DatePickerWithRange({
   className,
   onChange, 
   startDate,
-  endDate
-}: { className: string|null, onChange(value: DateRange|null): void, startDate: Date, endDate: Date|undefined}) {
+  endDate,
+  startDateLimit,
+  endDateLimit,
+}: { className: string|null, onChange(value: DateRange|null): void, startDate: Date, endDate: Date|undefined, startDateLimit: Date|null, endDateLimit: Date|null}) {
+
+  console.log("inner startDateLimit: ", startDateLimit);
+  console.log("inner endDateLimit: ", endDateLimit);
 
   const [date, setDate] = React.useState<DateRange | undefined>({
     from: startDate ||  Date.now(),
@@ -67,6 +72,17 @@ export function DatePickerWithRange({
             selected={date}
             onSelect={handleDateChange}
             numberOfMonths={2}
+            disabled={(day) => {
+
+                console.log(" --- inner startDateLimit: ", startDateLimit);
+                console.log(" --- inner endDateLimit: ", endDateLimit);
+                
+                if (!startDateLimit || !endDateLimit) { return true }
+                return day < startDateLimit || day > endDateLimit
+              }
+          
+              
+            }
           />
         </PopoverContent>
       </Popover>
